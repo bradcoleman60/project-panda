@@ -1,7 +1,12 @@
 const {Model, DataTypes} = require('sequelize');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class ProjectManager extends Model {}
+class ProjectManager extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+      }
+}
 
 ProjectManager.init(
     {
@@ -25,6 +30,16 @@ ProjectManager.init(
         },
     },
     {
+        hooks: {
+            async beforeCreate(newUserData) {
+              newUserData.password = await bcrypt.hash(newUserData.password, 10);
+              return newUserData;
+            },
+            beforeUpdate: async (updatedUserData) => {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+              },
+          },
         sequelize,
         timestamp: false,
         freezeTableName: true,
