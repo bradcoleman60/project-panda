@@ -13,19 +13,19 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up sessions with cookies
-// const sess = {
-//   secret: 'Project Panda',
-//   cookie: {
-//     maxAge: 86400,
-//   },
-//   resave: false,
-//   saveUninitialized: true,
-//   store: new SequelizeStore({
-//     db: sequelize,
-//   }),
-// };
+const sess = {
+  secret: 'Project Panda',
+  cookie: {
+    maxAge: 86400,
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
+};
 
-// app.use(session(sess));
+app.use(session(sess));
 
 const hbs = exphbs.create();
 
