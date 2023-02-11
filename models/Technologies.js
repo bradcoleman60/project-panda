@@ -14,11 +14,11 @@ Technology.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
-    resource_link: {
+    url: {
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    badge_link: {
+    badge: {
         type: DataTypes.TEXT,
         allowNull: false,
     }
@@ -28,7 +28,7 @@ Technology.init({
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: 'Technology',
+  modelName: 'technology',
 }
 );
 

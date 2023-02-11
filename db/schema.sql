@@ -1,2 +1,2 @@
-DROP DATABASE IF EXISTS projectPanda_db;
-CREATE DATABASE projectPanda_db;
+DROP DATABASE IF EXISTS projectpanda_db;
+CREATE DATABASE projectpanda_db;
