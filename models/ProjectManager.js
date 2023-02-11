@@ -1,4 +1,4 @@
-const {model, DataTypes} = require('sequelize');
+const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
 class ProjectManager extends Model {}
@@ -7,8 +7,9 @@ ProjectManager.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            // allowNull: false,
             primaryKey: true,
+            autoIncrement: true 
         },
         username: {
             type: DataTypes.STRING,
@@ -28,7 +29,7 @@ ProjectManager.init(
         timestamp: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user',
+        modelName: 'project_manager',
     }
 );
 
