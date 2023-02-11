@@ -102,27 +102,27 @@ const techData = [
     {
       name: "Bootstrap",
       url: "https://getbootstrap.com/",
-      badge: "<a href='https://getbootstrap.com/'><img src='https://img.shields.io/badge/Bootstrap-v4.5.3-563D7C?logo=Bootstrap&style=flat-square' alt='Bootstrap'></a>",
+      badge: "https://img.shields.io/badge/Bootstrap-v4.5.3-563D7C?logo=Bootstrap&style=flat-square",
     },
     {
         name: "Materialize",
       url: "https://materializecss.com/",
-      badge: "<a href='https://materializecss.com/'><img src='https://img.shields.io/badge/Materialize-v1.0.0-3e5e9a?logo=Materialize&style=flat-square' alt='Materialize'></a>",
+      badge: "https://img.shields.io/badge/Materialize-v1.0.0-3e5e9a?logo=Materialize&style=flat-square",
     },
     {
         name: "Bulma",
       url: "https://bulma.io/",
-      badge: "<a href='https://bulma.io/'><img src='https://img.shields.io/badge/Bulma-v0.10.2-00D1B2?logo=bulma&style=flat-square' alt='Bulma'></a>",
+      badge: "https://img.shields.io/badge/Bulma-v0.10.2-00D1B2?logo=bulma&style=flat-square'",
     },
     {
         name: "Semantic UI",
       url: "https://semantic-ui.com/",
-      badge: "<a href='https://semantic-ui.com/'><img src='https://img.shields.io/badge/Semantic%20UI-v2.4.1-E03997?logo=Semantic%20UI&style=flat-square' alt='Semantic UI'></a>",
+      badge: "https://img.shields.io/badge/Semantic%20UI-v2.4.1-E03997?logo=Semantic%20UI&style=flat-square'",
     },
     {
         name: "Tailwind CSS",
       url: "https://tailwindcss.com/",
-      badge: "<a href='https://tailwindcss.com/'><img src='https://img.shields.io/badge/Tailwind-v2.2-38B2AC?logo=tailwindcss&style=flat-square' alt='Tailwind CSS'></a>",
+      badge: "https://img.shields.io/badge/Tailwind-v2.2-38B2AC?logo=tailwindcss&style=flat-square'",
     },
   
     {
