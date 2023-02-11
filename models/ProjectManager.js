@@ -9,7 +9,8 @@ ProjectManager.init(
             type: DataTypes.INTEGER,
             // allowNull: false,
             primaryKey: true,
-            autoIncrement: true 
+            autoIncrement: true, 
+
         },
         username: {
             type: DataTypes.STRING,
@@ -30,6 +31,7 @@ ProjectManager.init(
         freezeTableName: true,
         underscored: true,
         modelName: 'project_manager',
+
     }
 );
 
