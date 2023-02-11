@@ -20,11 +20,24 @@ Project.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    cohort: {
-        type: DataTypes.STRING,
-        allowNull: false
+    cohort_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'cohort',
+          key: 'id',
+        },
     },
-    repo_link: {
+    project_manager_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'project_manager',
+        key: 'id',
+      },
+  },
+  
+    github_repo_link: {
         type: DataTypes.STRING,
         allowNull: false
     }
