@@ -1,4 +1,4 @@
-const Projects = require("../models/Projects");
+const { Project } = require("../models");
 
 const projectsData = [
   {
@@ -62,6 +62,6 @@ const projectsData = [
     }
 ];
 
-const seedProjects = () => Projects.bulkCreate(projectsData);
+const seedProjects = () => Project.bulkCreate(projectsData);
 
 module.exports = seedProjects;
