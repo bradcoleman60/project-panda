@@ -10,6 +10,10 @@ Technology.init({
         primaryKey: true,
         autoIncrement: true,
       },
+      category: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     name: {
         type: DataTypes.STRING,
         allowNull: false,
