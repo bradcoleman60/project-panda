@@ -5,6 +5,7 @@ const {Cohort, Project} = require('../../models')
 //Get all cohorts
 router.get('/', async (req, res) => {
     try {
+        //missing await keyword
         const cohortData = await Cohort.findAll()
         res.status(200).json(cohortData)
     }
