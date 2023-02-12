@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Project, TeamMember } = require('../../models') 
+const withAuth = require('../../utils/auth');
+
 
 router.get('/', async (req, res) => {
     try{
@@ -21,8 +23,7 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
-// const { Project } = require('../../models');
-const withAuth = require('../../utils/auth');
+
 
 
 // router.post('/', withAuth, async (req, res) => {
