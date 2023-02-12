@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
         res.status(500).json(err)
     }
 })
-const { Project } = require('../../models');
+// const { Project } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 
