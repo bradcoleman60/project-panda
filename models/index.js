@@ -2,6 +2,7 @@
 const TeamMember = require("./TeamMembers");
 const Project = require("./Projects");
 const Technology = require("./Technologies");
+const Technology1 = require("./Technologies1");
 const ProjectManager = require("./ProjectManager");
 const Cohort = require("./Cohorts");
 const ProjectTechnologies = require("./Project_Technologies");
@@ -68,6 +69,7 @@ module.exports = {
     Cohort,
     ProjectTechnologies,
     TeamMember,
+    Technology1
   };
 
  
