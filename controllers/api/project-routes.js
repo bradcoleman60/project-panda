@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Project } = require('../../models') 
+const { Project, TeamMember } = require('../../models') 
 const withAuth = require('../../utils/auth');
 
 
@@ -41,5 +41,19 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.post('/addMember', async (req, res) => {
+  try {
+    console.log("req.body.info", req.body);
+    const newMember = await TeamMember.create({
+      full_name: req.body.username,
+      github_username: req.body.username,
+      project_id: 1,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;

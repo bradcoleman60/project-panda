@@ -7,4 +7,7 @@ router.use('/cohorts', cohortRoutes)
 router.use('/projects', projectRoutes)
 router.use('/users', userRoutes)
 
+router.use('/addMember', projectRoutes)
+
+
 module.exports = router;
