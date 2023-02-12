@@ -14,7 +14,15 @@ const ProjectTechnologies = require("./Project_Technologies");
 // Project.hasMany(TeamMember, { foreignKey: 'project_id' });
 
 // TeamMember.belongsTo(Project, { foreignKey: 'project_id' });
+//Project has many Team Members and Team Members belong to Projects
 
+Project.hasMany(TeamMember, {
+    foreignKey: 'project_id'
+});
+
+TeamMember.belongsTo(Project,{
+    foreignKey: 'project_id'
+})
 
 // Projects have many technologies THROUGH project_technologies
 
