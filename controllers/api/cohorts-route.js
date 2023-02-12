@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const {Cohort, Project} = require('../../models') 
+const {Cohort, Project, ProjectManager} = require('../../models') 
 
 
 //Get all cohorts
@@ -14,13 +14,37 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.get('/:id', async (req, res) =>{
+
+//Get projects by cohort
+// router.get('/:id', async (req, res) =>{
+//     try{
+//         const cohortProjects = await Cohort.findByPk(req.params.id,{
+//          include: [{ model: Project}]
+//         })
+//         res.status(200).json(cohortProjects)
+//         console.log("cohort projects:", cohortProjects)
+//         const projectList = cohortProjects.map((data) => 
+//         data.get ({plain: true}))
+//         res.status(200).json(projectList)
+//         console.log("List of Projects", projectList );
+
+//         res.render("projectList", {projectList});
+        
+//     }
+//     catch(err){
+//         res.status(500).json(err)
+//     }
+// })
+
+router.get('/:id', async (req, res) => {
     try{
-        const cohortData = await Cohort.findByPk(req.params.id,{
-            include: [{model: Project}]
+        const projectsData = await Project.findAll({
+            where: {
+            cohort_id: req.params.id
+        }
         })
-        console.log(cohortData)
-        res.status(200).json(cohortData)
+        console.log(projectsData)
+        res.json(projectsData)
     }
     catch(err){
         res.status(500).json(err)

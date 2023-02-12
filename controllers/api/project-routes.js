@@ -6,7 +6,14 @@ const withAuth = require('../../utils/auth');
 router.get('/', async (req, res) => {
     try{
         const projectData = await Project.findAll()
+
+        const projectList = projectData.map((project) => 
+        project.get ({plain: true}))
+
+        console.log("List of Projects", projectList );
         res.status(200).json(projectData)
+        // res.render("tech-check-list", {techList});
+
     }
     catch(err){
         res.status(500).json(err)
@@ -17,6 +24,12 @@ router.get('/:id', async (req, res) => {
     try
     {
         const projectData = await Project.findByPk(req.params.id)
+        const projectList = projectData.map((data) => 
+        data.get ({plain: true}))
+
+        console.log("List of Projects", projectList );
+
+        res.render("projectList", {projectList});
         res.status(200).json(projectData)
     }
      catch(err){
