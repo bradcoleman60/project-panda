@@ -5,6 +5,7 @@ const {Cohort, Project} = require('../../models')
 //Get all cohorts
 router.get('/', async (req, res) => {
     try {
+        //missing await keyword
         const cohortData = await Cohort.findAll()
         res.status(200).json(cohortData)
     }
@@ -15,9 +16,10 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) =>{
     try{
-        const cohortData = Cohort.findByPk(req.params.id,{
+        const cohortData = await Cohort.findByPk(req.params.id,{
             include: [{model: Project}]
         })
+        console.log(cohortData)
         res.status(200).json(cohortData)
     }
     catch(err){
