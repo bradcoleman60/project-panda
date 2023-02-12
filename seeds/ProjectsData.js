@@ -65,3 +65,4 @@ const projectsData = [
 const seedProjects = () => Project.bulkCreate(projectsData);
 
 module.exports = seedProjects;
+
