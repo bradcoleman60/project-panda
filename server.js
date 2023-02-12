@@ -7,6 +7,7 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
+const helpers = require('./utils/helpers');
 
 // Set up our app to use express
 const app = express()
@@ -28,7 +29,7 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create();
+const hbs = exphbs.create({ helpers:  helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');

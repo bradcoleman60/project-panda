@@ -3,6 +3,7 @@ const seedCohortData = require('./CohortData');
 const seedProjectManagerData = require('./ProjectManagerData');
 const seedProjectsData = require('./ProjectsData');
 const seedTechnolgiesData = require('./TechnologiesData');
+const seedTechnolgiesData1 = require('./TechnologiesData1');
 const seedTeamMembersData = require('./TeamMembersData');
 
 //Join Tables
@@ -12,7 +13,7 @@ const sequelize = require('../config/connection');
 
 const seedAll = async () => {
 
-    await sequelize.sync({force: false});
+    await sequelize.sync({force: true});
     console.log('\n------- DATABASE SYNCED -----\n');
 
        
@@ -35,6 +36,8 @@ const seedAll = async () => {
     await seedTeamMembersData();
     console.log('\n------- TEAM_MEMBER SEEDED -----\n');
 
+    await seedTechnolgiesData1();
+    console.log('\n------- TECH 1 DATA SEEDED -----\n');
 
     //Seed Join Table
 
