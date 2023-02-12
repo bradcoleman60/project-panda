@@ -44,5 +44,43 @@ router.get("/projects/:id", async (req, res) => {
   }
 });
 
+//Get all cohorts to render the cohort list on the homepage
+router.get('/', async (req, res) =>{
+    try{
+       const cohortData = await Cohort.findAll()
+
+       const cohortList = cohortData.map((cohort) => 
+       cohort.get ({plain: true}))
+   
+       console.log("List of Cohorts", cohortList);
+   
+       res.render("homepage", {cohortList});
+
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
+})
+
+//Get all projects by the cohort id 
+router.get('/cohorts/:id', async (req, res) => {
+    try{
+        const projectsData = await Project.findAll({
+            where: {
+            cohort_id: req.params.id
+        }
+        })
+
+        const projectList = projectsData.map((project) =>
+        project.get({plain: true}))
+
+        console.log(projectsData)
+        // res.json(projectsData)
+        res.render("allProjects", {projectList});
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
+})
 
 module.exports = router;
