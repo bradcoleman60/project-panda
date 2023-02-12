@@ -3,7 +3,6 @@ const seedCohortData = require('./CohortData');
 const seedProjectManagerData = require('./ProjectManagerData');
 const seedProjectsData = require('./ProjectsData');
 const seedTechnolgiesData = require('./TechnologiesData');
-const seedTechnolgiesData1 = require('./TechnologiesData1');
 const seedTeamMembersData = require('./TeamMembersData');
 
 //Join Tables
@@ -30,15 +29,14 @@ const seedAll = async () => {
     await seedTechnolgiesData();
     console.log('\n------- TECHNOLOGY_DATA SEEDED -----\n');
 
-    await seedProjectTechnologyData();
-    console.log('\n------- PROJECT_TECHNOLOGIES JOIN SEEDED-----\n');
+    
 
     await seedTeamMembersData();
     console.log('\n------- TEAM_MEMBER SEEDED -----\n');
 
-    await seedTechnolgiesData1();
-    console.log('\n------- TECH 1 DATA SEEDED -----\n');
-
+    await seedProjectTechnologyData();
+    console.log('\n------- PROJECT_TECHNOLOGIES JOIN SEEDED-----\n');
+    
     //Seed Join Table
 
     process.exit(0)
