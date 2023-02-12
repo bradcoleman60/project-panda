@@ -11,6 +11,14 @@ TeamMember.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    project_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'project',
+        key: 'id',
+      },
+    },
     full_name: {
       type: DataTypes.STRING,
       allowNull: false,
