@@ -1,11 +1,11 @@
-const Cohort = require("../models/Cohorts");
+const { Cohort } = require("../models");
 
 const cohortData = [
   {
-   name: "Winter 2022"
-    
-  }
-]
+    id: 1,
+    name: "Winter 2022",
+  },
+];
 
 const seedCohorts = () => Cohort.bulkCreate(cohortData);
 

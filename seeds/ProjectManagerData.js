@@ -1,4 +1,4 @@
-const ProjectManager = require("../models/ProjectManager");
+const { ProjectManager } = require("../models");
 
 const projectManagerData = 
     [
