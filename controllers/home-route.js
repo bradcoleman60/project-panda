@@ -5,14 +5,13 @@ const router = require("express").Router();
 const {Cohort, ProjectTechnologies, ProjectManager, Project, Technology, TeamMember } = require("../models");
 
 //Get all Technologies for Create New Project Flow - Check Box Area
-
 router.get("/tech", async (req, res) => {
   try {
     const techData = await Technology.findAll();
 
     const techList = techData.map((data) => data.get({ plain: true }));
 
-    console.log("List of Tech", techList);
+    // console.log("List of Tech", techList);
 
     res.render("tech-check-list", { techList });
   } catch (err) {
