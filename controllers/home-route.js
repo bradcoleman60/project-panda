@@ -19,29 +19,31 @@ router.get("/tech", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
 // Render project list by id
-router.get("/projects/:id", async (req, res) => {
-  try {
-    const projectData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: ProjectManager,
-          attributes: ["username"],
-        },
-      ],
-    });
+// router.get("/projects/:id", async (req, res) => {
+//   try {
+//     const projectData = await Project.findByPk(req.params.id, {
+//       include: [
+//         {
+//           model: ProjectManager,
+//           attributes: ["username"],
+//         },
+//       ],
+//     });
 
-    const projects = projectData.get({ plain: true });
+//     const projects = projectData.get({ plain: true });
 
-    res.render("projectList", {
-      ...projects,
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+//     res.render("projectList", {
+//       ...projects,
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
 
 //Get all cohorts to render the cohort list on the homepage
 router.get('/', async (req, res) =>{
@@ -76,12 +78,34 @@ router.get('/cohorts/:id', async (req, res) => {
         console.log(projectsData)
         // res.json(projectsData)
         res.render("allProjects", {projectList});
+
     }
     catch(err){
         res.status(500).json(err)
     }
 })
 
+
+router.get('/projects/:id', async (req, res) =>{
+    try{
+        console.log("i am here")
+        const projectData = await Project.findByPk(req.params.id, {
+            include: [
+                {
+                  model: Technology, through: { attributes: [] }
+                },
+                {model: TeamMember}
+            ] 
+        })
+        console.log(projectData)
+        const projects = projectData.get({ plain: true });
+
+        res.render('projectInfo', projects)
+    }
+    catch(err){
+        res.status(500).json(err)
+    }
+})
 
 //Renders the Login Form 
 router.get('/login', async (req, res) => {
@@ -106,6 +130,7 @@ router.get('/createMember', (req, res) => {
   res.render('createMember');
     
 });
+
 
 
 module.exports = router;
