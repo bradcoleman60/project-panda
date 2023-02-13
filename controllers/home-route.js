@@ -5,14 +5,13 @@ const router = require("express").Router();
 const {Cohort, ProjectTechnologies, ProjectManager, Project, Technology, TeamMember } = require("../models");
 
 //Get all Technologies for Create New Project Flow - Check Box Area
-
 router.get("/tech", async (req, res) => {
   try {
     const techData = await Technology.findAll();
 
     const techList = techData.map((data) => data.get({ plain: true }));
 
-    console.log("List of Tech", techList);
+    // console.log("List of Tech", techList);
 
     res.render("tech-check-list", { techList });
   } catch (err) {
@@ -107,4 +106,31 @@ router.get('/projects/:id', async (req, res) =>{
         res.status(500).json(err)
     }
 })
+
+//Renders the Login Form 
+router.get('/login', async (req, res) => {
+  res.render('login');
+    
+});
+
+//Renders the Create Project Description Form 
+router.get('/createDescr', async (req, res) => {
+  res.render('createDescr');
+    
+});
+
+//Renders the registration form 
+router.get('/register', (req, res) => {
+  res.render('register');
+    
+});
+
+//Renders the add members to a project form
+router.get('/createMember', (req, res) => {
+  res.render('createMember');
+    
+});
+
+
+
 module.exports = router;

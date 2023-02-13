@@ -2,17 +2,14 @@ const router = require('express').Router();
 const { ProjectTechnologies } = require('../../models') 
 // const withAuth = require('../../utils/auth');
 
-
+/* This post route receives the values of the technologies that the Project Manager checks 
+ on the select technologies page when setting up a new project.NOTE: req.body includes the 
+ checkBoxValues array*/ 
 router.post('/', async (req, res) => {
   try {
     console.log("req.body info: ", req.body)
-    const newTechnology = await ProjectTechnologies.create({
-      ...req.body,
-    //   user_id: req.session.user_id,
-    });
+    await ProjectTechnologies.bulkCreate(req.body.checkBoxValues);
     
-    res.status(200).json(newTechnology);
-    console.log("NEW TECHNOLOGY: ", newTechnology)
   } catch (err) {
     res.status(400).json(err);
   }
