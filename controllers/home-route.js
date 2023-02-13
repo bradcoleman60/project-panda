@@ -22,13 +22,13 @@ router.get("/tech", async (req, res) => {
 
 
 // Render project list by id
-// router.get("/projects/:id", async (req, res) => {
+// router.get("/projects/1", async (req, res) => {
 //   try {
 //     const projectData = await Project.findByPk(req.params.id, {
 //       include: [
 //         {
 //           model: ProjectManager,
-//           attributes: ["username"],
+//           attributes: ['username'],
 //         },
 //       ],
 //     });
@@ -44,6 +44,27 @@ router.get("/tech", async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
+
+// Get all projects by project manager id
+router.get('/projects/:id', async (req, res) => {
+  try{
+      const projectsData = await Project.findAll({
+          where: {
+            project_manager_id: req.params.id
+      }
+      })
+
+    const projects = projectData.get({ plain: true });
+
+    res.render("projectList", {
+      ...projects,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 //Get all cohorts to render the cohort list on the homepage
 router.get('/', async (req, res) =>{

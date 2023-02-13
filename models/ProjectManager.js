@@ -45,7 +45,7 @@ ProjectManager.init(
         timestamp: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'project_manager',
+        modelName: 'projectmanager',
 
     }
 );
