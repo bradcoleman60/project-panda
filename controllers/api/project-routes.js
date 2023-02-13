@@ -50,19 +50,6 @@ router.post("/", async (req, res) => {
 });
 
 
-// router.post('/addProject', async (req, res) => {
-//   try {
-//     console.log("req.body.info", req.body);
-//     const newProject = await Project.create({
-//       title: req.body.username,
-//       github_username: req.body.username,
-//       project_id: 1,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
 
 router.post("/addMember", async (req, res) => {
   try {
@@ -77,5 +64,6 @@ router.post("/addMember", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;
