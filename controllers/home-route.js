@@ -83,4 +83,30 @@ router.get('/cohorts/:id', async (req, res) => {
     }
 })
 
+
+//Renders the Login Form 
+router.get('/login', async (req, res) => {
+  res.render('login');
+    
+});
+
+//Renders the Create Project Description Form 
+router.get('/createDescr', async (req, res) => {
+  res.render('createDescr');
+    
+});
+
+//Renders the registration form 
+router.get('/register', (req, res) => {
+  res.render('register');
+    
+});
+
+//Renders the add members to a project form
+router.get('/createMember', (req, res) => {
+  res.render('createMember');
+    
+});
+
+
 module.exports = router;

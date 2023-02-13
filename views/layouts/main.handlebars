@@ -14,18 +14,21 @@
       <div class="flex-column ">
     <header class="d-flex p-2 bg-dark text-white align-items-center">
         <h1 class="">
-        <img src="./panda.png" alt="Project Panda logo is of sitting panda working on a laptop while wearing glasses." style="width:75px;height:75px;">
+        <img src="../../public/images/panda.png" alt="Project Panda logo." style="width:75px;height:75px;">
         <a href="/" class="text-white display-3">Project Panda</a>
       </h1>
       <nav class="position-absolute top-10 end-0 me-5 fs-4">
         {{#if logged_in}}
         <a href="/views/projectList.handlebars" class="text-white">View Projects</a> |
-        <a href="/views/createDescr.handlebars" class="text-white">Create Project</a> |
+       
         <a href="/views/homepage.handlebars" class="text-white">Logout</a>
         {{else}}
-        <a href="/views/homepage.handlebars" class="text-white">Home</a> |
-        <a href="/views/login.handlebars" class="text-white">Log In</a> |
-        <a href="/views/register.handlebars" class="text-white">Register</a>
+        <a class="text-white" href="/" >Home</a> |
+        <a class="text-white" href="/login" >Log In</a> |
+        <a class="text-white" href="/register" >Register</a>
+        <a class="text-white" href="/createDescr" >Create Project</a> |
+        <a class="text-white" href="/tech" >See Tech</a> |
+        <a class="text-white" href="/createMember" >Create Member</a> |
         {{/if}}
       </nav>
     </header>
