@@ -26,6 +26,10 @@ const sess = {
   }),
 };
 
+app.get("/public/JS/input-tech.js", function (req, res) {
+  res.set("Content-Type", "text/javascript");
+  res.sendFile(__dirname + "/public/JS/input-tech.js");
+});
 
 app.use(session(sess));
 

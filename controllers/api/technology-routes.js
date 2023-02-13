@@ -6,13 +6,8 @@ const { ProjectTechnologies } = require('../../models')
 router.post('/', async (req, res) => {
   try {
     console.log("req.body info: ", req.body)
-    const newTechnology = await ProjectTechnologies.create({
-      ...req.body,
-    //   user_id: req.session.user_id,
-    });
-    
-    res.status(200).json(newTechnology);
-    console.log("NEW TECHNOLOGY: ", newTechnology)
+    await ProjectTechnologies.bulkCreate(req.body.checkBoxValues);
+        
   } catch (err) {
     res.status(400).json(err);
   }
