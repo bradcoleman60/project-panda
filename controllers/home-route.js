@@ -78,7 +78,7 @@ router.get('/', async (req, res) =>{
        console.log("List of Cohorts", cohortList);
        console.log("Loged in", req.session.logged_in);
    
-       res.render("homepage", {cohortList, logged_in: req.session.logged_in});
+       res.render("homepage", {cohortList});
 
     }
     catch(err){
@@ -108,7 +108,30 @@ router.get('/cohorts/:id', async (req, res) => {
     }
 })
 
+// // details page for logged in project manager
+// router.get('/projects/:id', async (req, res) =>{
+//   try{
+//       console.log("i am here")
+//       const projectData = await Project.findByPk(req.params.id, {
+//           include: [
+//               {
+//                 model: Technology, through: { attributes: [] }
+//               },
+//               {model: TeamMember}
+//           ] 
+//       })
+//       console.log(projectData)
+//       const projects = projectData.get({ plain: true });
 
+//       res.render('projectInfo', projects, {logged_in: req.session.logged_in})
+//   }
+//   catch(err){
+//       res.status(500).json(err)
+//   }
+// })
+
+
+// details page for public
 router.get('/projects/:id', async (req, res) =>{
     try{
         console.log("i am here")
