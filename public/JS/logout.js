@@ -1,5 +1,4 @@
 const logout = async () => {
-    // assuming we have api/users route for logged-in managers
   const response = await fetch("/api/users/logout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -11,5 +10,6 @@ const logout = async () => {
     alert(response.statusText);
   }
 };
+
 
 document.querySelector("#logout").addEventListener("click", logout);
