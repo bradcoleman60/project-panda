@@ -65,14 +65,20 @@ if (title && cohort_id && github_repo_link && description) {
         }),
         
         headers: {'Content-Type': 'application/json'},
-    });
-    if (response.ok) {
-        // document.location.replace('/');
-    } else {
-        alert(response.statusText);
-    }
-};
+    }).then((response) => {
+        return response.json()
 
+    }).then((data) => {
+        console.log(data)
+        var prodManagerId = data.project_manager_id
+        document.location.replace('/project/' + prodManagerId)
+    })
+   
+   
+
+
+
+};
 
 };
 

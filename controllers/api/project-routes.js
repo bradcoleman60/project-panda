@@ -79,6 +79,8 @@ router.post("/", async (req, res) => {
           full_name:req.body.full_name1,
           github_username: req.body.github_username1
         })
+      }).then((data) => {
+      res.json({project_manager_id: req.session.project_manager_id})
       })
 
     
