@@ -21,30 +21,6 @@ router.get("/tech", async (req, res) => {
 });
 
 
-// Render project list by id
-// router.get("/projects/1", async (req, res) => {
-//   try {
-//     const projectData = await Project.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: ProjectManager,
-//           attributes: ['username'],
-//         },
-//       ],
-//     });
-
-//     const projects = projectData.get({ plain: true });
-
-//     res.render("projectList", {
-//       ...projects,
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
-
 // Get all projects by project manager id
 router.get('/project/:id', async (req, res) => {
   try{
@@ -112,6 +88,8 @@ router.get('/cohorts/:id', async (req, res) => {
 })
 
 
+
+// lginform
 router.get('/projects/:id', async (req, res) =>{
     try{
         console.log("i am here")

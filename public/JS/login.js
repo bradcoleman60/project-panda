@@ -29,32 +29,36 @@ const loginForm = async (event) => {
 
 
 
-const registerForm = async (event) => {
-    event.preventDefault();
+// const registerForm = async (event) => {
+//     event.preventDefault();
   
-    const regUsername = document.querySelector('#regUsername').value.trim();
-    const regPassword = document.querySelector('#regPassword').value.trim();
+//     const regUsername = document.querySelector('#regUsername').value.trim();
+//     const regPassword = document.querySelector('#regPassword').value.trim();
   
-    if (regUsername && regPassword) {
-      const response = await fetch('/api/users/login', {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-        headers: { 'Content-Type': 'application/json' },
-      });
+//     if (regUsername && regPassword) {
+//       const response = await fetch('/api/users/', {
+//         method: 'POST',
+//         body: JSON.stringify({regUsername, regPassword}),
+//         headers: { 'Content-Type': 'application/json' },
+//       });
   
-      if (response.ok) {
-        document.location.replace('/projects:id');
-      } else {
-        alert(response.statusText);
-      }
-    }
-  };
+//       if (response.ok) {
+//         console.log(response);
+//         var userData = await response.json();
+//         var id = userData.user.id;
+//         console.log(userData.user, id);
+//         document.location.replace('/project/');
+//       } else {
+//         alert(response.statusText);
+//       }
+//     } console.log(registerForm);
+//   };
   
   document
     .querySelector('#logBtn')
     .addEventListener('click', loginForm);
   
-  document
-    .querySelector('#regBtn')
-    .addEventListener('click', registerForm);
+  // document
+  //   .querySelector('#regBtn')
+  //   .addEventListener('click', registerForm);
   
