@@ -1,0 +1,143 @@
+<body>
+                    <h2 class="text-dark text-center mt-5">Create a New Project</h2>
+
+                    <form class="row gx-3 gy-2 align-items-center mt-5">
+
+                        <div class="col-sm-3  ms-auto">
+                            <label for="createTitle" class="form-label">Title</label> <input type="text"
+                                class="form-control" id="createTitle" placeholder="Project Panda">
+                        </div>
+                        <div class="col-sm-3">
+                            <label for="createCohort" class="form-label">Cohort</label>
+                            <select class="form-select" id="createCohort">
+                                <option  value="2" >Winter 2022</option>
+                                <option value="1">Fall 2022</option>
+
+                            </select>
+                        </div>
+                        <div class="col-sm-3 me-auto">
+                            <label for="createRepo" class="form-label">GitHub Repo URL</label>
+                            <input type="text" class="form-control" id="createRepo" placeholder="https://github.com/">
+                        </div>
+                    </form>
+                    <form class="row gx-3 gy-2 align-items-center mt-5">
+                        <div class="col-9 mx-auto">
+                            <label for="createDescription" class="form-label">Description</label>
+                            <textarea type="text" class="form-control" id="createDescription"></textarea>
+                        </div>
+                    </form>
+
+
+<h2 class="text-dark text-center mt-5">Add Team Member</h2>
+
+    <form class="mt-5 ms-4">
+      <div class="col-sm-4">
+        <label for="createMember" class="form-label">Team Member Name</label>
+        <input type="text" class="form-control" id="full-name1" />
+      </div>
+      <div class="col-sm-4 mt-5">
+        <label for="createGitUser" class="form-label">GitHub Username</label>
+        <input type="text" class="form-control" id="github1" />
+      </div>
+      
+    </form>
+
+<form id="checkbox-form">
+<div class="col">
+
+  {{!-- ROW 1 --}}
+  <div class="row">
+    <div class="col p-2 m-3 border border-dark bg-dark text-white">
+      <h3 class="border border-dark p-1 m-1 text-center">Node</h3>
+      {{#each (filterByTechCategory techList "Node")}}
+      {{> tech-list-partial}}
+      {{/each}}
+    </div>
+    <div class="col p-2 m-3 border border-dark bg-dark text-white">
+      <h3 class=" border border-dark p-1 m-1 text-center">React</h3>
+      {{#each (filterByTechCategory techList "React")}}
+      {{> tech-list-partial}}
+      {{/each}}
+    </div>
+    <div class="col p-2 m-3 border border-dark bg-dark text-white">
+      <h3 class="border border-dark p-1 m-1 text-center">JavaScript</h3>
+      {{#each (filterByTechCategory techList "JavaScript")}}
+      {{> tech-list-partial}}
+      {{/each}}
+    </div>
+  </div>
+  
+  {{!-- ROW 2 --}}
+  <div class="row">
+    <div class="col p-2 m-3 border border-dark bg-dark text-white">
+      <h3 class="border border-dark p-1 m-1 text-center">Databases</h3>
+      {{#each (filterByTechCategory techList "Databases")}}
+      {{> tech-list-partial}}
+      {{/each}}
+    </div>
+    <div class="col p-2 m-3 border border-dark bg-dark text-white">
+      <h3 class="border border-dark p-1 m-1 text-center">CSS</h3>
+      {{#each (filterByTechCategory techList "CSS")}}
+      {{> tech-list-partial}}
+      {{/each}}
+    </div>
+    <div class="col p-2 m-3 border border-dark bg-dark text-white">
+      <h3 class="border border-dark p-1 m-1 text-center">Server</h3>
+      {{#each (filterByTechCategory techList "Server")}}
+      {{> tech-list-partial}}
+      {{/each}}
+    </div>
+  </div>
+  
+</div>
+<div>
+  <button type="submit" class="btn btn-dark  my-3 mt-5" id="add-new-project-btn" >Creation The Project </button>
+</div>
+
+</form>
+
+<script src="/JS/all-input.js"> </script>
+
+{{!-- <script src="/JS/create-project.js"> </script>
+<script src="/JS/input-tech.js"> </script>
+<script src="/JS/project.js"></script> --}}
+
+
+                    {{!-- <div>
+                        <button type="submit" class="btn btn-dark offset-md-9 my-3 mt-5" id="newMember">Add Team Members ⇨ </button>
+                    </div> --}}
+
+                
+            </body>
+
+        </main>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+                <script src="/JS/create-project.js"> </script>
+    
+</body>
