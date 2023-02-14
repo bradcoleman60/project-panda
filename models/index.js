@@ -11,16 +11,17 @@ const ProjectTechnologies = require("./Project_Technologies");
 
 
 //Associations between team members and projects
-//Team Members have one project and Projects have many team members 
-// Project.hasMany(TeamMember, { foreignKey: 'project_id' });
+// Team Members have one project and Projects have many team members 
+Project.hasMany(TeamMember, { 
+    foreignKey: 'project_id' });
+TeamMember.belongsTo(Project, { 
+    foreignKey: 'project_id' });
 
-// TeamMember.belongsTo(Project, { foreignKey: 'project_id' });
-//Project has many Team Members and Team Members belong to Projects
+// Project has many Team Members and Team Members belong to Projects
 
 Project.hasMany(TeamMember, {
     foreignKey: 'project_id'
 });
-
 TeamMember.belongsTo(Project,{
     foreignKey: 'project_id'
 })
@@ -29,15 +30,13 @@ TeamMember.belongsTo(Project,{
 
 Project.belongsToMany(Technology,{
     through: 'project_technologies'
-}
-      );
+});
 
 //technologies have many projects THROUGH project_technologies 
 
 Technology.belongsToMany(Project, {
     through: 'project_technologies'
-})
-
+});
 
 // Project Manager has many Project and projects belong to Project Manager
 
@@ -47,9 +46,7 @@ ProjectManager.hasMany(Project, {
 
 Project.belongsTo(ProjectManager, {
     foreignKey: 'project_manager_id'
-})
-
-
+});
 
 
 // Project has one Cohort and Cohort belongs to many Projects
@@ -60,7 +57,7 @@ Cohort.hasMany(Project, {
 
 Project.belongsTo(Cohort, {
     foreignKey: 'cohort_id'
-})
+});
 
 module.exports = {
     Project,

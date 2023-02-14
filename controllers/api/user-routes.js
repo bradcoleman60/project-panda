@@ -21,21 +21,22 @@ const { ProjectManager, TeamMember } = require('../../models')
 
 
 router.post('/', async (req, res) => {
+  console.log(req.body);
+  console.log(req.body.username);
+  console.log(req.body.password);
     try {
-        const managerData = await ProjectManager.create({
-            username: req.body.username,
-            password: req.body.password,
-        });
-        console.log('This is from userdata', req.body.username);
+        const managerData = await ProjectManager.create(req.body);
+        //     username: req.body.username,
+        //     password: req.body.password,
+        // });
+
         req.session.save(() => {
-          // req.session.username = userData;
-          req.session.project_manager_id = userData.dataValues.id;
+          req.session.id = managerData.id;
           req.session.logged_in = true;
-          
-          res.json({ user: userData, message: 'You are now logged in!' });
-          console.log(userData.dataValues.id);
+    
+          res.status(200).json(managerData);
         });
-        res.status(200).json(managerData);
+        // res.status(200).json(managerData);
     } catch (err) {
       res.status(400).json(err);
     }

@@ -5,7 +5,7 @@ const router = require("express").Router();
 const {Cohort, ProjectTechnologies, ProjectManager, Project, Technology, TeamMember } = require("../models");
 
 //Get all Technologies for Create New Project Flow - Check Box Area
-router.get("/tech", async (req, res) => {
+router.get("/all-input", async (req, res) => {
   try {
     const techData = await Technology.findAll();
 
@@ -13,12 +13,32 @@ router.get("/tech", async (req, res) => {
 
     // console.log("List of Tech", techList);
 
-    res.render("tech-check-list", { techList });
+    res.render("all-input", { techList, logged_in: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+
+/////THIS WORKS
+//Get all Technologies for Create New Project Flow - Check Box Area
+// router.get("/tech", async (req, res) => {
+//   try {
+//     const techData = await Technology.findAll();
+
+//     const techList = techData.map((data) => data.get({ plain: true }));
+
+//     // console.log("List of Tech", techList);
+
+//     res.render("tech-check-list", { techList });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
+
+
 
 
 // Get all projects by project manager id
@@ -56,8 +76,9 @@ router.get('/', async (req, res) =>{
        cohort.get ({plain: true}))
    
        console.log("List of Cohorts", cohortList);
+       console.log("Loged in", req.session.logged_in);
    
-       res.render("homepage", {cohortList});
+       res.render("homepage", {cohortList, logged_in: req.session.logged_in});
 
     }
     catch(err){
@@ -117,9 +138,15 @@ router.get('/login', async (req, res) => {
     
 });
 
+// //Renders the Create Project Description Form 
+// router.get('/createDescr', async (req, res) => {
+//   res.render('createDescr');
+    
+// });
+
 //Renders the Create Project Description Form 
-router.get('/createDescr', async (req, res) => {
-  res.render('createDescr');
+router.get('/all-input', async (req, res) => {
+  res.render('all-input');
     
 });
 

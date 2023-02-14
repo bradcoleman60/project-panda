@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3001;
 const sess = {
   secret: 'Project Panda',
   cookie: {
-    maxAge: 86400,
+    maxAge: 1000 * 60 * 60,
   },
   resave: false,
   saveUninitialized: true,
