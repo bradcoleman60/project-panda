@@ -50,8 +50,6 @@ router.post("/", async (req, res) => {
 });
 
 
-<<<<<<< Updated upstream
-=======
 // router.post('/addProject', async (req, res) => {
 //   try {
 //     console.log("req.body.info", req.body);
@@ -65,7 +63,6 @@ router.post("/", async (req, res) => {
 //     res.status(500).json(err);
 //   }
 // });
->>>>>>> Stashed changes
 
 router.post("/addMember", async (req, res) => {
   try {
@@ -81,8 +78,4 @@ router.post("/addMember", async (req, res) => {
   }
 });
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 module.exports = router;
