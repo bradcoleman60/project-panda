@@ -1,5 +1,11 @@
 const router = require('express').Router()
+<<<<<<< Updated upstream
+
+const { ProjectManager, TeamMember } = require('../../models')
+
+=======
 const { ProjectManager } = require('../../models')
+>>>>>>> Stashed changes
 
 
 
@@ -21,7 +27,10 @@ router.post('/login', async (req, res) => {
     try {
       const userData = await ProjectManager.findOne({ where: { username: req.body.username }});
   
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     //   if (!userData) {
     //     res.status(400).json({ message: 'Incorrect username or password, please try again' });
     //     return;
@@ -34,6 +43,7 @@ router.post('/login', async (req, res) => {
     //     return;
     //   }
   
+<<<<<<< Updated upstream
     console.log('This is from userdata', req.body.username);
       req.session.save(() => {
         // req.session.username = userData;
@@ -44,12 +54,22 @@ router.post('/login', async (req, res) => {
         console.log(userData.dataValues.id);
       });
 
+=======
+    console.log('This is from userdata', userData);
+      req.session.save(() => {
+        req.session.username = userData;
+        req.session.logged_in = true;
+        
+        res.json({ user: userData, message: 'You are now logged in!' });
+      });
+>>>>>>> Stashed changes
   
     } catch (err) {
       res.status(400).json(err);
       console.log(res.status(400).json(err));
     }
   });
+<<<<<<< Updated upstream
 
   // Logout
 router.post('/logout', (req, res) => {
@@ -62,5 +82,26 @@ router.post('/logout', (req, res) => {
     }
   });
 
+
+router.post('/addMember', async (req, res) => {
+  console.log(req.body)
+  try {
+    console.log("req.body.info", req.body);
+    const newMember = await TeamMember.create({
+      full_name: req.body.full_name,
+      github_username: req.body.github_username,
+      project_id: 1,
+    });
+
+    res.status(200).json(newMember);
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+=======
+>>>>>>> Stashed changes
 
 module.exports = router;
