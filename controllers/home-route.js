@@ -13,7 +13,7 @@ router.get("/all-input", async (req, res) => {
 
     // console.log("List of Tech", techList);
 
-    res.render("all-input", { techList });
+    res.render("all-input", { techList, logged_in: req.session.logged_in });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -76,6 +76,7 @@ router.get('/', async (req, res) =>{
        cohort.get ({plain: true}))
    
        console.log("List of Cohorts", cohortList);
+       console.log("Loged in", req.session.logged_in);
    
        res.render("homepage", {cohortList, logged_in: req.session.logged_in});
 
