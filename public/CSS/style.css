@@ -41,6 +41,9 @@ h1{
 #navbar{
     font-family: 'Literata', serif;
     font-size: 25px;
+    display: flex;
+justify-content: end;
+    /* justify-content: right; */
 }
 #styledimg{
     background-image: url('/images/logo.png');
@@ -57,14 +60,14 @@ h1{
     font-size: 20px;
 }
 #projectDesc{
-    border: 3px solid #736B82;
+   border: 3px solid #736B82;
     border-radius: 10px;
     font-size: 25px;
     padding: 15px;
     margin-top: 10px;
     /* font-family: 'Urbanist', sans-serif; */
     /* font-family: 'Dosis', sans-serif; */
-    font-family: 'Roboto Serif', serif;
+    font-family: 'Roboto Serif', serif; 
 }
 
 #project-title{
@@ -82,6 +85,7 @@ h1{
     font-family: 'Roboto Serif', serif;
     /* font-family: 'Dosis', sans-serif; */
     margin-top: 10px;
+    margin-right: 5px;
     border: 3px solid #736B82;
     border-radius: 10px;
     padding: 10px;
@@ -89,8 +93,22 @@ h1{
 }
 #tech{
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
     padding: 10px;
     border: 3px solid #736B82;
     border-radius: 10px;
+}
+#project-repo{
+    border: 3px solid #736B82;
+    border-radius: 10px;
+    margin-left: 5px;
+    font-size: 25px;
+    padding: 15px;
+    margin-top: 10px;
+    /* font-family: 'Urbanist', sans-serif; */
+    /* font-family: 'Dosis', sans-serif; */
+    font-family: 'Roboto Serif', serif;
+    margin-right: 5px;
+   
 }

@@ -11,17 +11,25 @@
       {{description}}
   </div> 
     <div class="row">
-    <div class="col-3" id="teamMembers">
+    <div class="col-lg-3 col-md-6 col-sm-12" id="teamMembers">
       <h1>Team Members:</h1>
     {{#each TeamMembers as |member|}}
     {{>project-details-members}}
     {{/each}}
   </div>
-  <div class="col-6" id="tech">
+  <div class="col-lg-3 col-md-6 col-sm-12" id="tech">
         <h1>Technology Used:</h1>
     {{#each technologies as |tech| }}
     {{>project-details-tech}}
     {{/each}}  
   </div>
+<div class="col-lg-3 col-md-6 col-sm-12" id="project-repo">
+      <h1>Repo Link:</h1>
+      <a href="{{github_repo_link}}" target="_blank">Github Repo</a>
+    </div>
+
+  </div>
+  <div class="row">
+    
   </div>
 </div>
