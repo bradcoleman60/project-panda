@@ -48,17 +48,17 @@ router.post('/login', async (req, res) => {
       const userData = await ProjectManager.findOne({ where: { username: req.body.username }});
   
 
-    //   if (!userData) {
-    //     res.status(400).json({ message: 'Incorrect username or password, please try again' });
-    //     return;
-    //   }
-  
-    //   const validPassword = await userData.checkPassword(req.body.password);
-  
-    //   if (!validPassword) {
-    //     res.status(400).json({ message: 'Incorrect username or password, please try again' });
-    //     return;
-    //   }
+  // if (!userData) {
+  //   res.status(400).json({ message: 'Incorrect username or password, please try again' });
+  //   return;
+  // }
+
+  // const validPassword = await userData.checkPassword(req.body.password);
+
+  // if (!validPassword) {
+  //   res.status(400).json({ message: 'Incorrect username or password, please try again' });
+  //   return;
+  // }
   
     console.log('This is from userdata', req.body.username);
       req.session.save(() => {
