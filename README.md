@@ -19,6 +19,7 @@ Below is a gif of the site:
 
 ![screenshot](./public/images/Project%20Panda.gif)
 
+You can log onto this site with the following guest login:  Username: "jane_doe" with a password: "SecurePassword1"
 
 # **Highlighted Code Example**
 
