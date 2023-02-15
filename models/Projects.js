@@ -17,7 +17,7 @@ Project.init(
       allowNull: false
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     cohort_id: {
@@ -38,7 +38,7 @@ Project.init(
   },
   
     github_repo_link: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false
     }
   },
