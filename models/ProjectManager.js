@@ -12,7 +12,7 @@ ProjectManager.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            // allowNull: false,
+            allowNull: false,
             primaryKey: true,
             autoIncrement: true, 
 
