@@ -30,7 +30,7 @@ var checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
 
     const checkBoxValues = [];
 
-    /*For each technology that is checks, iterate the array and create and object that 
+    /*For each technology that is checked, iterate the array and create and object that 
     contains the project ID and the technology ID*/
     checkboxes.forEach(el => {
         checkBoxValues.push(el.value)
@@ -42,13 +42,13 @@ var checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
 
 // Fetch POST to Server to add all input fields into Project Database Table
 
-console.log("Title" , title)
-console.log("Cohort" , cohort_id)
-console.log("GitHunb" , github_repo_link)
-console.log("Description" , description)
-console.log("Technology" , checkBoxValues)
-console.log("Team full name" , full_name1)
-console.log("Team git hub " , github_username1)
+// console.log("Title" , title)
+// console.log("Cohort" , cohort_id)
+// console.log("GitHub" , github_repo_link)
+// console.log("Description" , description)
+// console.log("Technology" , checkBoxValues)
+// console.log("Team full name" , full_name1)
+// console.log("Team git hub " , github_username1)
 
 if (title && cohort_id && github_repo_link && description) {
     const response =  await fetch('/api/projects', {

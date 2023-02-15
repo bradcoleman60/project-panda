@@ -1,4 +1,4 @@
-//Requring dependencies
+//Requiring dependencies
 const express = require('express');
 const path = require('path');
 const sequelize = require('./config/connection');
